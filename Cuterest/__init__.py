@@ -29,17 +29,9 @@ login_manager.login_view = 'login'
 
 # DATABASE SELECTION
 def set_database():
-	'''
-	Uses a temporary database if the program detects that
-	it is running on a mac, otherwise it uses the production
-	database on Heroku postgres.
-	'''
-	if sys.platform == 'darwin':
-		# running on a mac
-		DATABASE_URL = "sqlite:////tmp/tempdb_rr.db"
-	else:
-		# heroku postgresql database
-		DATABASE_URL = "postgres://cypesbhdqdjwdm:_Fc_oDYnfvYp8Ma5F3aOnJMHXd@ec2-54-83-17-9.compute-1.amazonaws.com:5432/d5r02un6qtqh6h"
+
+	# heroku postgresql database
+	DATABASE_URL = "postgres://jijqzkddnribvr:7IPm5d755KMycpfXPlmpXaDhtu@ec2-54-163-248-14.compute-1.amazonaws.com:5432/ddtnjdnbt3areo"
 
 
 	app.config['SQLALCHEMY_DATABASE_URI'] = DATABASE_URL
@@ -59,3 +51,9 @@ from Cuterest.dbtables.testdb import Item
 #add admin files imports here
 
 import Cuterest.admin.helloheroku
+
+
+
+
+db.create_all()
+db.session.commit()
