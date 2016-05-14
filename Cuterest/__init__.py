@@ -50,6 +50,8 @@ set_database()
 #DatabaseTables
 #add the imports for those here
 
+import Cuterest.dbtables.testdb
+
 
 
 
