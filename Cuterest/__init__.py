@@ -55,3 +55,5 @@ set_database()
 
 #modules
 #add admin files imports here
+
+import Cuterest.admin.helloheroku
