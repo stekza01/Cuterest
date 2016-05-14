@@ -16,6 +16,7 @@ from sqlalchemy.orm import sessionmaker
 
 app = Flask(__name__)
 app.secret_key = '\xa7h\xb7)\xce\xce\x8c\xa9`\xce\xa1\xdb\x9b1;F\x12c\xb2\xe9\xe7\xe8\x92\xe2'
+app.debug = True
 
 heroku = Heroku(app)
 db = SQLAlchemy(app)
