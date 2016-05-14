@@ -62,7 +62,7 @@ db.session.commit()
 def createDefaultItems():
 	itemone = Item('Bob')
 	itemtwo = Item('David')
-	itemThree = Item('Henry')
+	itemthree = Item('Henry')
 	
 	db.session.add(itemone)
 	db.session.add(itemtwo)
