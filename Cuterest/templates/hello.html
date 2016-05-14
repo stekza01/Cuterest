@@ -1,5 +1,11 @@
 <html>
 	<body>
-		<h1>Hello Jon.</h1>
+		<h1>Hello everyone</h1>
+		{% for item in mylist %}
+          		<tr>
+          			<td>{{ item.id }}</td>
+          			<td><strong>{{ b.name }}</strong></td>
+          		</tr>
+          	{% endfor %}
 	</body>
 </html>
