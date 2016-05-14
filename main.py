@@ -3,4 +3,4 @@
 from Cuterest import app
 app.run(debug=True)
 
-#see __init__.py for the main python file.
+#see RoomReserve/__init__.py for the main python file.
