@@ -2,6 +2,7 @@ import os, sys, time
 from flask import *
 from jinja2 import Template
 from flask.ext.sqlalchemy import SQLAlchemy
+from flask_bootstrap import Bootstrap
 
 from wtforms import *
 from wtforms.validators import *
@@ -20,6 +21,7 @@ app.debug = True
 
 heroku = Heroku(app)
 db = SQLAlchemy(app)
+bootstrap = Bootstrap(app)
 
 # FLASK-LOGIN
 login_manager = LoginManager()
@@ -49,6 +51,9 @@ set_database()
 #add the imports for those here
 
 from Cuterest.dbtables.testdb import Item
+from Cuterest.dbtables.users import User
+from Cuterest.dbtables.board import Board
+from Cuterest.dbtables.picture import Picture
 
 
 
