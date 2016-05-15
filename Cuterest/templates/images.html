@@ -1,4 +1,4 @@
-{% extends "base.html" %}
+% extends "base.html" %}
 
 {% block content %}
 <head>
@@ -11,13 +11,53 @@
   <table class="table table-bordered">
     {% for item in mylist %}
         <tr>
+         <th>{{ item.name }}</th>
          <td> <img src="{{ item.url }}" height = "50"></td>
          <td>{{ item.description }}</td>
         </tr>
      {% endfor %}
   </table>
 </div>
+<div class="container">
+<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Add a New Pin</button>
+
+<div id="myModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Add a New Pin</h4>
+      </div>
+
+      <div class="modal-body">
+        <h1>Enter New Pin Information</h1>
+        <form action="/newpicture" method=post class="form-horizontal" role="form">
+
+        <div class="form-group">
+          <label for="imgurl">Image URL</label>
+          <input class="form-control" name="url">
+        </div>
+
+        <div class="form-group">
+          <label for="imgdescription">Name</label>
+          <input class="form-control" name="name">
+        </div>
+
+        <div class="form-group">
+          <label for="imgdescription">Description</label>
+          <input class="form-control" name="description">
+        </div>
+        <button type="submit" class="btn btn-default">Submit</button>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+
+    </div>
 
 </body>
 {% endblock %}
+
 
