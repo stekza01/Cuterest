@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Enter New Pin Information</h1>
+<form action="/newpicture" method=post class="form-horizontal" role="form">
+  <div class="form-group">
+    <label for="imgurl">Image URL</label>
+    <input class="form-control" name="url">
+  </div>
+
+  <div class="form-group">
+    <label for="imgdescription">Name</label>
+    <input class="form-control" name="name">
+  </div>
+
+  <div class="form-group">
+    <label for="imgdescription">Description</label>
+    <input class="form-control" name="description">
+  </div>
+  <button type="submit" class="btn btn-default">Submit</button>
+</form>
+{% endblock %}
+
+

@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block content %}
+<head>
+  <title>My Cuterest Boards</title>
+</head>
+<body>
+
+<div class="container">
+  <h2>My Pins</h2>
+  <table class="table table-bordered">
+    {% for item in mylist %}
+        <tr>
+         <td> <img src="{{ item.url }}" height = "50"></td>
+         <td>{{ item.description }}</td>
+        </tr>
+     {% endfor %}
+  </table>
+</div>
+
+</body>
+{% endblock %}
+
