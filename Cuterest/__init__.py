@@ -31,8 +31,13 @@ login_manager.login_view = 'login'
 # DATABASE SELECTION
 def set_database():
 
-	# heroku postgresql database
-	DATABASE_URL = "postgres://jijqzkddnribvr:7IPm5d755KMycpfXPlmpXaDhtu@ec2-54-163-248-14.compute-1.amazonaws.com:5432/ddtnjdnbt3areo"
+
+	if sys.platform == 'linux':
+		# running on linux
+		DATABASE_URL = "sqlite:////tmp/tempdb_rr.db"
+	else:
+		# heroku postgresql database
+		DATABASE_URL = "postgres://jijqzkddnribvr:7IPm5d755KMycpfXPlmpXaDhtu@ec2-54-163-248-14.compute-1.amazonaws.com:5432/ddtnjdnbt3areo"
 
 
 	app.config['SQLALCHEMY_DATABASE_URI'] = DATABASE_URL
