@@ -82,7 +82,7 @@ def makeboard():
 		else:
 			pass
 
-	return render_template('newboard.html', form=form)
+	return redirect(url_for('viewuserboards'))
 
 
 @app.route('/newpicture/<boardid>', methods=['GET', 'POST'])
