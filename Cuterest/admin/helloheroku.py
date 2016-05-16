@@ -57,8 +57,8 @@ def signin():
 		formdata = request.form
 		email = formdata['email']
 		password = formdata['password']
-		check = db.session.query(User).filter_by(email=email, password=password).first()
-		if check:
+		check = db.session.query(User).filter_by(email=email).first()
+		if check.check_password(password):
 			login_user(check)
 			return redirect(url_for('hello'))
 
