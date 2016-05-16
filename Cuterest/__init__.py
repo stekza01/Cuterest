@@ -68,16 +68,3 @@ import Cuterest.admin.helloheroku
 
 db.create_all()
 db.session.commit()
-
-
-def createDefaultItems():
-	itemone = Item('Bob')
-	itemtwo = Item('David')
-	itemthree = Item('Henry')
-	
-	db.session.add(itemone)
-	db.session.add(itemtwo)
-	db.session.add(itemthree)
-	db.session.commit()
-	
-createDefaultItems()
