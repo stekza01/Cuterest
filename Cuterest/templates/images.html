@@ -1,4 +1,4 @@
-% extends "base.html" %}
+{% extends "base.html" %}
 
 {% block content %}
 <head>
@@ -8,7 +8,7 @@
 
 <div class="container">
   <h2>My Pins</h2>
-  <table class="table table-bordered">
+  <table class="table table-bordered", id="itemtable">
     {% for item in mylist %}
         <tr>
          <th>{{ item.name }}</th>
@@ -18,6 +18,61 @@
      {% endfor %}
   </table>
 </div>
+
+<script>
+    function loadXMLDoc()
+    {
+        var req = new XMLHttpRequest()
+        req.onreadystatechange = function()
+        {
+            if (req.readyState == 4)
+            {
+                if (req.status != 200)
+                {
+                    //error handling code here
+                }
+                else
+                {
+                    var response = JSON.parse(req.responseText);
+
+					var mytable = document.getElementById('itemtable');
+
+					var row = document.createElement("TR");
+					var itemname = document.createElement("TD");
+					itemname.innerHTML = response.thename;
+					var itemimage = document.createElement("TD");
+					var myimage = document.createElement("IMG");
+					myimage.setAttribute("src", response.thesrc);
+					myimage.setAttribute("height", "50");
+					var itemdesc = document.createElement("TD");
+					itemname.innerHTML = response.thedesc;
+
+					row.appendChild(itemname);
+					itemimage.appendChild(myimage);
+					row.appendChild(itemimage);
+					row.appendChild(itemdesc);
+					mytable.appendChild(row);
+
+					
+
+                }
+            }
+        }
+    
+        req.open('POST', '/ajax')
+        req.setRequestHeader("Content-type", "application/x-www-form-urlencoded")
+        var item1 = document.getElementById('imageurl').value
+        var item2 = document.getElementById('imagename').value
+		var item3 = document.getElementById('imagedesc').value
+		var item4 = document.getElementById('idforboard').value
+        var postVars = 'src='+item1+'&name='+item2+'&desc='+item3+'&boardid='+item4
+        req.send(postVars)
+        
+        return false
+    }
+</script>
+
+
 <div class="container">
 <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Add a New Pin</button>
 
@@ -30,25 +85,28 @@
         <h4 class="modal-title">Add a New Pin</h4>
       </div>
 
+
       <div class="modal-body">
         <h1>Enter New Pin Information</h1>
-        <form action="/newpicture" method=post class="form-horizontal" role="form">
+        <form action="" method="POST" class="form-horizontal" role="form">
 
         <div class="form-group">
           <label for="imgurl">Image URL</label>
-          <input class="form-control" name="url">
+          <input class="form-control" name="url" id="imageurl">
         </div>
+
+		<input type="hidden" class="form-control" name="url" id="idforboard" value="{{ boardid }}">
 
         <div class="form-group">
           <label for="imgdescription">Name</label>
-          <input class="form-control" name="name">
+          <input class="form-control" name="name" id="imagename">
         </div>
 
         <div class="form-group">
           <label for="imgdescription">Description</label>
-          <input class="form-control" name="description">
+          <input class="form-control" name="description" id="imagedesc">
         </div>
-        <button type="submit" class="btn btn-default">Submit</button>
+        <button type="submit" class="btn btn-default" onclick="return loadXMLDoc()" data-dismiss="modal">Submit</button>
         </form>
       </div>
       <div class="modal-footer">
@@ -59,5 +117,3 @@
 
 </body>
 {% endblock %}
-
-

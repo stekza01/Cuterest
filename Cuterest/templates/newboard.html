@@ -2,6 +2,7 @@
 {% extends "base.html" %}
 
 {% block content %}
+<div class="container">
 <h1>Enter New Board Information</h1>
 <form action="/newboard" method=post class="form-horizontal" role="form">
   <div class="form-group">
@@ -14,4 +15,5 @@
   </div>
   <button type="submit" class="btn btn-default">Submit</button>
 </form>
+</div>
 {% endblock %}
