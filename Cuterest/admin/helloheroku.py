@@ -101,7 +101,7 @@ def makepic(boardid):
 		else:
 			pass
 
-	return render_template('newimage.html', form=form)
+	return redirect(url_for('viewboard', boardid = boardid))
 
 
 @app.route('/viewboard/<boardid>', methods=['GET', 'POST'])
@@ -114,7 +114,7 @@ def viewboard(boardid):
 		mylist.append(item)
 
 
-	return render_template('images.html', mylist=mylist)
+	return render_template('images.html', mylist=mylist, boardid=boardid)
 
 
 @app.route('/profile', methods=['GET', 'POST'])
@@ -128,11 +128,20 @@ def viewuserboards():
 
 	return render_template('boards.html', mylist=boardlist)
 
-
+@app.route('/ajax', methods = ['POST'])
+def ajax_request():
+	source = request.form['src']
+	name = request.form['name']
+	desc = request.form['desc']
+	boardid = int(request.form['boardid'])
+	if createPicture(boardid, name, desc, source):
+		pass
+	else:
+		pass
+	return jsonify(thename=name, thesrc=source, thedesc=desc)
 
 
 @app.route('/')
-@login_required
 def hello():
 	items = db.session.query(User)
 	items2 = db.session.query(Board)
