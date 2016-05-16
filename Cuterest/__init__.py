@@ -3,13 +3,11 @@ from flask import *
 from jinja2 import Template
 from flask.ext.sqlalchemy import SQLAlchemy
 from flask_bootstrap import Bootstrap
-
 from wtforms import *
 from wtforms.validators import *
 from flask.ext.wtf import Form
 from wtforms import TextField, BooleanField, PasswordField, TextAreaField, StringField, SubmitField, validators
 from flask import Flask, render_template, flash, request, url_for
-
 from flask.ext.heroku import Heroku
 from flask.ext.login import LoginManager, login_user, logout_user, current_user, login_required
 from sqlalchemy import create_engine
