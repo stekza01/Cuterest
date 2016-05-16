@@ -13,6 +13,7 @@ def logout():
     logout_user()
     return redirect("/")
 
+@app.route("/signin", methods=['GET','POST'])
 @app.route("/login", methods=['GET','POST'])
 def login():
     if request.method == 'GET':
