@@ -3,37 +3,12 @@
 {% extends "base.html" %}
 
 	{% block content %}
-		<h1>Hello everyone</h1>
-		<table>
-		{% for item in mylist %}
-          		<tr>
-          			<td>{{ item.id }}</td>
-          			<td><strong>{{ item.first }}</strong></td>
-					<td>{{ item.last }}</td>
-					<td>{{ item.email }}</td>
-					<td>{{ item.password }}</td>
-          		</tr>
-          	{% endfor %}
-		</table>
-		<h1>Hello everyone</h1>
-		<table>
-		{% for item in mylist2 %}
-          		<tr>
-          			<td>{{ item.name }}</td>
-          			<td><strong>{{ item.description }}</strong></td>
-          		</tr>
-          	{% endfor %}
-		</table>
-		<h1>Hello everyone</h1>
-		<table>
-		{% for item in mylist3 %}
-          		<tr>
-          			<td>{{ item.name }}</td>
-          			<td><strong>{{ item.description }}</strong></td>
-          		</tr>
-          	{% endfor %}
-
-		</table>
+		<div class="container">
+		  <div class="jumbotron">
+		    <h1>Welcome!</h1> 
+		    <p>Please login or signup to save some cute content!</p> 
+		  </div>
+		</div>
 
 	{% endblock %}
 
