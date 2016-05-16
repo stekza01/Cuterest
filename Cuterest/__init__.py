@@ -62,7 +62,7 @@ from Cuterest.dbtables.picture import Picture
 import Cuterest.admin.helloheroku
 
 
-
+db.drop_all()
 
 db.create_all()
 db.session.commit()
