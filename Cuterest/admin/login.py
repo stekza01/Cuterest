@@ -18,7 +18,7 @@ def logout():
 def login():
     if request.method == 'GET':
         # Loading this page, send back the form
-        return render('login.html')
+        return render_template('login.html')
 
 
     # The form has been filled out, process input.
