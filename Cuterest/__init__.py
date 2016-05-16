@@ -60,6 +60,7 @@ from Cuterest.dbtables.picture import Picture
 #add admin files imports here
 
 import Cuterest.admin.helloheroku
+import Cuterest.admin.login
 
 
 db.drop_all()
