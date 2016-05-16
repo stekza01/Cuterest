@@ -1,4 +1,4 @@
-from Cutereset import *
+from Cuterest import *
 
 class Form_Login(Form):
     email = StringField('Email Address', validators=[DataRequired()])
