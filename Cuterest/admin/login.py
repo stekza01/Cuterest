@@ -45,4 +45,4 @@ def login():
         next = request.args.get('next')
     except:
         next = url_for('viewuserboards')
-    return redirect(next or url_for('hello'))
+    return redirect(next or url_for('viewuserboards'))
