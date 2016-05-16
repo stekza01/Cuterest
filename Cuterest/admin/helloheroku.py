@@ -112,6 +112,8 @@ def viewboard(boardid):
 @login_required
 @app.route('/profile', methods=['GET', 'POST'])
 def viewuserboards():
+	if not current_user:
+		return redirect(url_for('login'))
 	userid = current_user.id
 	myboards = db.session.query(Board).filter_by(userid=userid)
 	boardlist = []
