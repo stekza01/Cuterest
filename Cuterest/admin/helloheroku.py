@@ -21,11 +21,6 @@ class form_NewPic(Form):
     url = StringField('Source URL', validators=[DataRequired()])
 
 
-@login_manager.user_loader
-def load_user(user_id):
-    return User.get(user_id)
-
-
 
 @app.route('/signup', methods=['GET', 'POST'])
 def signup():
@@ -61,15 +56,10 @@ def signin():
 			return redirect(url_for('hello'))
 
 	return render_template('login.html', form=form)
-	
-@app.route('/logout')
-def logout():
-    logout_user()
-    return redirect("/")
 
 
 
-
+@login_required
 @app.route('/newboard', methods=['GET', 'POST'])
 def makeboard():
 	form = form_NewBoard()
@@ -87,7 +77,7 @@ def makeboard():
 
 	return redirect(url_for('viewuserboards'))
 
-
+@login_required
 @app.route('/newpicture/<boardid>', methods=['GET', 'POST'])
 def makepic(boardid):
 	boardid = int(boardid)
@@ -106,7 +96,7 @@ def makepic(boardid):
 
 	return redirect(url_for('viewboard', boardid = boardid))
 
-
+@login_required
 @app.route('/viewboard/<boardid>', methods=['GET', 'POST'])
 def viewboard(boardid):
 	boardid = int(boardid)
@@ -119,7 +109,7 @@ def viewboard(boardid):
 
 	return render_template('images.html', mylist=mylist, boardid=boardid)
 
-
+@login_required
 @app.route('/profile', methods=['GET', 'POST'])
 def viewuserboards():
 	userid = current_user.id
@@ -130,6 +120,7 @@ def viewuserboards():
 
 
 	return render_template('boards.html', mylist=boardlist)
+
 
 @app.route('/ajax', methods = ['POST'])
 def ajax_request():
