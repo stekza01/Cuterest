@@ -36,7 +36,7 @@ def signup():
 
 		if createUser(firstname, lastname, email, password):
 			#user made successfully
-			return redirect(url_for('viewuserboards'))
+			return redirect(url_for('login'))
 		else:
 			#make this return basic when we get there
 			pass
