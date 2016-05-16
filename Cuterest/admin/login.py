@@ -43,5 +43,5 @@ def login():
         # Allows a redirect to the requested page (if applicable) after login
         next = request.args.get('next')
     except:
-        next = url_for('hello')
+        next = url_for('viewuserboards')
     return redirect(next or url_for('hello'))
