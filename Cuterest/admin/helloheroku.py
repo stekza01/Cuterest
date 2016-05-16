@@ -41,7 +41,7 @@ def signup():
 
 		if createUser(firstname, lastname, email, password):
 			#user made successfully
-			pass
+			return redirect(url_for('viewuserboards'))
 		else:
 			#make this return basic when we get there
 			pass
@@ -63,6 +63,11 @@ def signin():
 			return redirect(url_for('hello'))
 
 	return render_template('login.html', form=form)
+	
+@app.route('/logout')
+def logout():
+    logout_user()
+    return redirect("/")
 
 
 
