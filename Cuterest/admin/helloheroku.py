@@ -49,8 +49,6 @@ def signup():
 	return render_template('newuser.html', form=form)
 
 
-@app.route('/login', methods=['GET', 'POST'])
-@app.route('/signin', methods=['GET', 'POST'])
 def signin():
 	form = form_SignIn()
 	if request.method == 'POST':
