@@ -1,5 +1,6 @@
 from Cuterest import *
 
+
 class form_CreateUser(Form):
     firstname = StringField('First Name', validators=[DataRequired()])
     lastname = StringField('Last Name', validators=[DataRequired()])
