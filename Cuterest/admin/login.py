@@ -3,6 +3,7 @@ from Cuterest import *
 class Form_Login(Form):
     email = StringField('Email Address', validators=[DataRequired()])
     password = PasswordField('Password', validators=[DataRequired()])
+    
 
 @login_manager.user_loader
 def load_user(id):
