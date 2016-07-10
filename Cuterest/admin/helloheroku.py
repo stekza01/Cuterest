@@ -6,6 +6,7 @@ class form_CreateUser(Form):
     lastname = StringField('Last Name', validators=[DataRequired()])
     email = StringField('Email Address', validators=[DataRequired()])
     password = PasswordField('Password')
+    
 
 class form_SignIn(Form):
     email = StringField('Email Address', validators=[DataRequired()])
